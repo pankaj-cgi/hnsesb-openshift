@@ -1,0 +1,35 @@
+﻿kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: parksmap-allow-external
+  namespace: c5839f-test
+  selfLink: >-
+    /apis/networking.k8s.io/v1/namespaces/c5839f-test/networkpolicies/parksmap-allow-external
+  uid: 084e2fca-fa4f-4fcd-91ab-b9ea8d8e9848
+  resourceVersion: '1117299974'
+  generation: 2
+  creationTimestamp: '2021-06-01T16:47:17Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: networking.k8s.io/v1
+      time: '2021-06-01T16:53:39Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:ingress': {}
+          'f:podSelector':
+            'f:matchLabels':
+              .: {}
+              'f:app': {}
+              'f:deploymentconfig': {}
+          'f:policyTypes': {}
+spec:
+  podSelector:
+    matchLabels:
+      app: parksmap
+      deploymentconfig: parksmap
+  ingress:
+    - {}
+  policyTypes:
+    - Ingress

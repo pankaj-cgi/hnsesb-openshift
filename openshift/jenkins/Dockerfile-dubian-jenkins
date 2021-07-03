@@ -1,0 +1,45 @@
+# Base image docker pull jenkins/jenkins:lts-jdk11
+FROM jenkins/jenkins:lts-jdk11
+# if we want to install via apt
+USER root
+RUN apt-get update && apt-get install -y sudo \
+maven \
+apt-transport-https \
+ca-certificates \
+curl \
+gnupg2 \
+#lsb-release \
+#systemd
+software-properties-common
+
+#RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+#for version 2
+RUN apt-key fingerprint 0EBFCD88
+
+#RUN echo \
+#  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+#  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+RUN add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/debian \
+       $(lsb_release -cs) stable"
+
+#RUN apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
+RUN apt-get update && apt-get install -y docker-ce-cli
+
+
+ENV PATH=$PATH:/usr/share/maven
+COPY settings.xml /usr/share/maven/conf
+
+# drop back to the regular jenkins user - good practice and for access to folder for jenkins user
+#USER jenkins
+RUN mkdir -p /tmp/repository
+#RUN mkdir -p /tmp/repository/ca
+#COPY ca /tmp/repository/ca
+#CMD ["mvn","-s","/tmp/.m2/settings.xml"]
+
+
+
+ENV JENKINS_HOME /var/jenkins_home
+

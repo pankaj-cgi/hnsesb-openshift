@@ -1,0 +1,249 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  selfLink: >-
+    /apis/apps.openshift.io/v1/namespaces/c5839f-tools/deploymentconfigs/jenkins-alpine
+  resourceVersion: '1247230130'
+  name: jenkins-alpine
+  uid: b2bfef5a-1f77-486b-910b-04f4a194457a
+  creationTimestamp: '2021-06-28T15:43:43Z'
+  generation: 2
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2021-06-28T15:43:43Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            'f:app.openshift.io/runtime': {}
+            'f:app': {}
+            'f:app.kubernetes.io/name': {}
+            .: {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime-version': {}
+            'f:app.openshift.io/runtime-namespace': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/component': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:selector':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+          'f:strategy':
+            'f:activeDeadlineSeconds': {}
+            'f:rollingParams':
+              .: {}
+              'f:intervalSeconds': {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+              'f:timeoutSeconds': {}
+              'f:updatePeriodSeconds': {}
+            'f:type': {}
+          'f:template':
+            .: {}
+            'f:metadata':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/generated-by': {}
+              'f:creationTimestamp': {}
+              'f:labels':
+                .: {}
+                'f:app': {}
+                'f:deploymentconfig': {}
+            'f:spec':
+              .: {}
+              'f:containers':
+                .: {}
+                'k:{"name":"jenkins-alpine"}':
+                  .: {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":8080,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                    'k:{"containerPort":50000,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:memory': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/var/jenkins_home"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:volumes':
+                .: {}
+                'k:{"name":"jenkins-alpine-1"}':
+                  .: {}
+                  'f:emptyDir': {}
+                  'f:name': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2021-06-28T15:47:03Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:spec':
+              'f:containers':
+                'k:{"name":"jenkins-alpine"}':
+                  'f:image': {}
+          'f:triggers': {}
+        'f:status':
+          'f:updatedReplicas': {}
+          'f:readyReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:details':
+            .: {}
+            'f:causes': {}
+            'f:message': {}
+          'f:replicas': {}
+          'f:availableReplicas': {}
+          'f:observedGeneration': {}
+          'f:unavailableReplicas': {}
+          'f:latestVersion': {}
+  namespace: c5839f-tools
+  labels:
+    app: jenkins-alpine
+    app.kubernetes.io/component: jenkins-alpine
+    app.kubernetes.io/instance: jenkins-alpine
+    app.kubernetes.io/name: jenkins-alpine
+    app.kubernetes.io/part-of: jenkins
+    app.openshift.io/runtime: jenkins-alpine
+    app.openshift.io/runtime-namespace: c5839f-tools
+    app.openshift.io/runtime-version: latest
+spec:
+  strategy:
+    type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {}
+    activeDeadlineSeconds: 21600
+  triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - jenkins-alpine
+        from:
+          kind: ImageStreamTag
+          namespace: c5839f-tools
+          name: 'jenkins-alpine:latest'
+        lastTriggeredImage: >-
+          image-registry.openshift-image-registry.svc:5000/c5839f-tools/jenkins-alpine@sha256:48e97da24f7d793ed7e3a3ef8eb13afaec4424a8ffb67ee13f317914737ac306
+    - type: ConfigChange
+  replicas: 1
+  revisionHistoryLimit: 10
+  test: false
+  selector:
+    app: jenkins-alpine
+    deploymentconfig: jenkins-alpine
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: jenkins-alpine
+        deploymentconfig: jenkins-alpine
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      volumes:
+        - name: jenkins-alpine-1
+          emptyDir: {}
+      containers:
+        - name: jenkins-alpine
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/c5839f-tools/jenkins-alpine@sha256:48e97da24f7d793ed7e3a3ef8eb13afaec4424a8ffb67ee13f317914737ac306
+          ports:
+            - containerPort: 50000
+              protocol: TCP
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              memory: 500Mi
+          volumeMounts:
+            - name: jenkins-alpine-1
+              mountPath: /var/jenkins_home
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  observedGeneration: 2
+  details:
+    message: config change
+    causes:
+      - type: ConfigChange
+  availableReplicas: 1
+  unavailableReplicas: 0
+  latestVersion: 1
+  updatedReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2021-06-28T15:44:02Z'
+      lastTransitionTime: '2021-06-28T15:43:50Z'
+      reason: NewReplicationControllerAvailable
+      message: replication controller "jenkins-alpine-1" successfully rolled out
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2021-06-28T15:47:03Z'
+      lastTransitionTime: '2021-06-28T15:47:03Z'
+      message: Deployment config has minimum availability.
+  replicas: 1
+  readyReplicas: 1

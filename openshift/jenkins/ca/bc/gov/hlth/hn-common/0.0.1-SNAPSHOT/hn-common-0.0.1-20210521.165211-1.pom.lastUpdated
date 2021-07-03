@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 25 15:27:46 MDT 2021
+https\://repo1.maven.org/maven2/.error=
+https\://repo1.maven.org/maven2/.lastUpdated=1621978066396
+https\://artifactory.hlth.gov.bc.ca/artifactory/cgi-mvn-release/.lastUpdated=1621978066778

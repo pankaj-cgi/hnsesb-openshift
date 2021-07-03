@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 25 15:27:22 MDT 2021
+https\://repo1.maven.org/maven2/.error=
+https\://repo1.maven.org/maven2/.lastUpdated=1621978036075
+https\://artifactory.hlth.gov.bc.ca/artifactory/cgi-mvn-release/.error=Could not transfer artifact ca.bc.gov.hlth\:hn-common\:pom\:0.0.1-SNAPSHOT from/to cgi-mvn-release (https\://artifactory.hlth.gov.bc.ca/artifactory/cgi-mvn-release)\: Hostname artifactory.hlth.gov.bc.ca not verified\:\n    certificate\: sha256/78sBGz0QYAN2fWpcSjhn5kXUIPFB9iYBcdqyxFK4QtQ\=\n    DN\: EMAILADDRESS\=mid-tier.vic@cgi.com, CN\=artifactory.hlth.gov.bc.ca, OU\=Ministry of Health, O\=Government of the Province of British Columbia, L\=Victoria, ST\=British Columbia, C\=CA\n    subjectAltNames\: []
+@default-cgi-mvn-release-https\://artifactory.hlth.gov.bc.ca/artifactory/cgi-mvn-release/.lastUpdated=1621978042540

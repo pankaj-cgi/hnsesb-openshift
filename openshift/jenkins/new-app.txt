@@ -1,0 +1,16 @@
+--> Deploying template "c5839f-tools/jenkins-master-s2i" to project c5839f-tools
+
+     jenkins-master-s2i
+     ---------
+     Creates a Jenkins master using S2I for installing plugins and configuring Jenkins
+
+     * With parameters:
+        * SOURCE_REPOSITORY_URL=https://github.com/siamaksade/jenkins-s2i-example.git
+        * SOURCE_REPOSITORY_REF=master
+        * CONTEXT_DIR=master
+        * Memory Limit=1Gi
+        * Jenkins Password=password # generated
+        * Volume Capacity=1Gi
+
+--> Creating resources ...
+--> Failed
