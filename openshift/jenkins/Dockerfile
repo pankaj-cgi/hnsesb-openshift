@@ -5,8 +5,8 @@ USER root
 RUN apt-get update && apt-get install -y sudo \
 maven 
 ENV PATH=$PATH:/usr/share/maven
-MDKIR -p /tmp/repository
 COPY settings.xml /usr/share/maven/conf
+Run mkdir -p /tmp/repository
 COPY ./ca /tmp/repository
 
 # drop back to the regular jenkins user - good practice and for access to folder for jenkins user
